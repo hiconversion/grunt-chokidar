@@ -1,5 +1,5 @@
 {
-  "name": "grunt-chokidar",
+  "name": "grunt-chokidar-watch",
   "description": "Run predefined tasks whenever watched file patterns are added, changed or deleted using Chokidar",
   "version": "1.0.0",
   "author": {
@@ -14,12 +14,7 @@
   "bugs": {
     "url": "https://github.com/JimRobs/grunt-chokidar/issues"
   },
-  "license": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/JimRobs/grunt-chokidar/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "engines": {
     "node": ">=0.10.0"
   },
@@ -27,10 +22,10 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "async": "^0.9.0",
-    "chokidar": "^1.0.4",
-    "lodash": "^2.4.1",
-    "tiny-lr": "^0.1.4"
+    "async": "^2.6.1",
+    "chokidar": "^2.0.2",
+    "lodash": "^4.17.10",
+    "tiny-lr": "^1.1.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
