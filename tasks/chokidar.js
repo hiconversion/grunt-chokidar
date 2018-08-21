@@ -117,7 +117,7 @@ module.exports = function(grunt) {
         ignoreInitial: true
       }));
 
-      watcher.on('all', function(event, filepath) {
+      watcher.on('all', function(event, filepath, val1) {
         // Skip events not specified
         if (!_.includes(target.options.event, 'all') && !_.includes(target.options.event, event)) {
           return;
@@ -127,6 +127,13 @@ module.exports = function(grunt) {
 
         // Skip empty filepaths
         if (filepath === '') {
+          return;
+        }
+
+        // Fix chokidar change fired erroneously on atime (LastAccessTime)
+        // https://github.com/paulmillr/chokidar/issues/750
+        if (event === 'change' && val1 && val1.atime && val1.mtime && val1.atime > val1.mtime) {
+          grunt.verbose.ok('File "' + filepath + '" changed (atime) ignored.');
           return;
         }
 
